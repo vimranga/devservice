@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="Dept" Package="qa.test.tl.model" BeanClass="qa.test.tl.model.Dept"
+          isJavaBased="true">
+  <Attribute Name="deptno" Type="java.math.BigDecimal"/>
+  <Attribute Name="dname" Type="java.lang.String"/>
+  <Attribute Name="loc" Type="java.lang.String"/>
+  <AccessorAttribute id="empCollection" IsCollection="true"
+                     RemoveMethod="removeEmp" AddMethod="addEmp"
+                     BeanClass="qa.test.tl.model.Emp"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeEmp"/>
+      <Property Name="AddMethod" Value="addEmp"/>
+    </Properties>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="false" Type="void" id="addEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="anEmp" Type="qa.test.tl.model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="addEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="index" Type="int" isStructured="false"/>
+    <ParameterInfo id="anEmp" Type="qa.test.tl.model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="anEmp" Type="qa.test.tl.model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true" Type="qa.test.tl.model.Dept"
+                     BeanClass="qa.test.tl.model.Dept" id="Dept"/>
+  <ConstructorMethod IsCollection="true" Type="qa.test.tl.model.Dept"
+                     BeanClass="qa.test.tl.model.Dept" id="Dept">
+    <ParameterInfo id="deptno" Type="java.math.BigDecimal"
+                   isStructured="false"/>
+    <ParameterInfo id="dname" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="loc" Type="java.lang.String" isStructured="false"/>
+  </ConstructorMethod>
+</JavaBean>

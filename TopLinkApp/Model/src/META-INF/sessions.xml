@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<sessions version="2.3.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <session xsi:type="server-session">
+    <name>default</name>
+    <server-platform xsi:type="weblogic-10-platform"/>
+    <primary-project xsi:type="xml">META-INF/tlMap.xml</primary-project>
+    <login xsi:type="database-login">
+      <platform-class>org.eclipse.persistence.platform.database.oracle.Oracle11Platform</platform-class>
+      <datasource>database</datasource>
+    </login>
+  </session>
+</sessions>

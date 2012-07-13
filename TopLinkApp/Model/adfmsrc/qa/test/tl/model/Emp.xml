@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="Emp" Package="qa.test.tl.model" BeanClass="qa.test.tl.model.Emp"
+          isJavaBased="true">
+  <Attribute Name="comm" Type="java.math.BigDecimal"/>
+  <Attribute Name="empno" Type="java.math.BigDecimal"/>
+  <Attribute Name="ename" Type="java.lang.String"/>
+  <Attribute Name="hiredate" Type="java.util.Date"/>
+  <Attribute Name="job" Type="java.lang.String"/>
+  <Attribute Name="sal" Type="java.math.BigDecimal"/>
+  <AccessorAttribute id="deptno" IsCollection="false"
+                     BeanClass="qa.test.tl.model.Dept"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="empCollection" IsCollection="true"
+                     RemoveMethod="removeEmp" AddMethod="addEmp"
+                     BeanClass="qa.test.tl.model.Emp"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeEmp"/>
+      <Property Name="AddMethod" Value="addEmp"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="mgr" IsCollection="false"
+                     BeanClass="qa.test.tl.model.Emp"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <MethodAccessor IsCollection="false" Type="void" id="addEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="anEmp" Type="qa.test.tl.model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="addEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="index" Type="int" isStructured="false"/>
+    <ParameterInfo id="anEmp" Type="qa.test.tl.model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="anEmp" Type="qa.test.tl.model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true" Type="qa.test.tl.model.Emp"
+                     BeanClass="qa.test.tl.model.Emp" id="Emp">
+    <ParameterInfo id="empno" Type="java.math.BigDecimal" isStructured="false"/>
+    <ParameterInfo id="ename" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="job" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="hiredate" Type="java.util.Date" isStructured="false"/>
+    <ParameterInfo id="sal" Type="java.math.BigDecimal" isStructured="false"/>
+    <ParameterInfo id="comm" Type="java.math.BigDecimal" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true" Type="qa.test.tl.model.Emp"
+                     BeanClass="qa.test.tl.model.Emp" id="Emp"/>
+</JavaBean>

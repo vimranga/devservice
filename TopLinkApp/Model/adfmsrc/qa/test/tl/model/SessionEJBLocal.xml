@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="SessionEJBLocal" Package="qa.test.tl.model"
+          BeanClass="qa.test.tl.model.SessionEJBLocal" isJavaBased="true">
+  <MethodAccessor IsCollection="false" Type="java.lang.Object" id="mergeEntity"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object"
+                  id="persistEntity" ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object"
+                  id="refreshEntity" ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeEntity"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="entity" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="qa.test.tl.model.Emp"
+                  BeanClass="qa.test.tl.model.Emp" id="findAllEmp"
+                  ReturnNodeName="Emp"
+                  CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="true" Type="qa.test.tl.model.Dept"
+                  BeanClass="qa.test.tl.model.Dept" id="findAllDept"
+                  ReturnNodeName="Dept"
+                  CollectionBeanClass="UpdateableCollection"/>
+</JavaBean>

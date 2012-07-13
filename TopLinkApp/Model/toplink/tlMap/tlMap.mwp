@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF8"?>
+<project type="relational">
+   <name>tlMap</name>
+   <product-version>11.1.1.6.38.61.92</product-version>
+   <schema-version>8.0</schema-version>
+   <deploymentPlatform>ECLIPSELINK</deploymentPlatform>
+   <descriptor-names>
+      <descriptor-name>qa.test.tl.model.Dept</descriptor-name>
+      <descriptor-name>qa.test.tl.model.Emp</descriptor-name>
+   </descriptor-names>
+   <defaults-policy type="relational">
+      <use-method-accessing>false</use-method-accessing>
+      <caching-policy>
+         <cache-expiry/>
+      </caching-policy>
+      <cache-all-statements>false</cache-all-statements>
+      <bind-all-parameters>true</bind-all-parameters>
+   </defaults-policy>
+   <ejb-policy>
+      <ejb-persistence-type>No EJB</ejb-persistence-type>
+   </ejb-policy>
+   <deployment-xml-path>META-INF/</deployment-xml-path>
+   <database>
+      <platform-name>Oracle11</platform-name>
+      <deployment-login>
+         <driver-class>oracle.jdbc.OracleDriver</driver-class>
+         <url>jdbc:oracle:thin:@//adt-scaler1:1521/s12grp1</url>
+         <save-password>true</save-password>
+      </deployment-login>
+      <development-login>DATABASE1</development-login>
+   </database>
+   <sequencing>
+      <preallocation-size>50</preallocation-size>
+   </sequencing>
+   <table-generation>
+      <default-primary-key-name>ID</default-primary-key-name>
+      <primary-key-search-pattern>*ID</primary-key-search-pattern>
+   </table-generation>
+</project>
