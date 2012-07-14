@@ -91,6 +91,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
             </hash>
+            <value n="defaultConnection"/>
             <url n="earURL" path="deploy/ejb1.ear"/>
             <value n="enterpriseAppName" v="ejb1"/>
             <hash n="fileGroups">
