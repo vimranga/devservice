@@ -284,7 +284,7 @@
     <path refid="library.Connection.Manager"/>
     <path refid="library.BC4J.Oracle.Domains"/>
   </path>
-  <target name="init">
+  <target name="init" depends="clean">
     <tstamp/>
     <mkdir dir="${output.dir}"/>   
   </target>
@@ -292,6 +292,9 @@
   <target name="clean" description="Clean the project">
     <delete includeemptydirs="true" quiet="true">
       <fileset dir="${output.dir}" includes="**/*"/>
+    </delete>
+    <delete includeemptydirs="true" quiet="true">
+      <fileset dir="${oracle.jdeveloper.deploy.dir}" includes="**/*"/>
     </delete>
   </target>
    <target name="war" description="Create War file" depends="init">
