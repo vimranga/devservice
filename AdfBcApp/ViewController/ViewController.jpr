@@ -54,49 +54,37 @@
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="qa.test.tl.view"/>
+   <value n="defaultPackage" v="view"/>
    <hash n="oracle.ide.model.DependencyConfiguration">
       <list n="dependencyList">
          <hash>
             <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
-            <url n="sourceOwnerURL" path="../TopLinkApp.jws"/>
+            <url n="sourceOwnerURL" path="../AdfBcApp.jws"/>
             <url n="sourceURL" path="../Model/Model.jpr"/>
          </hash>
       </list>
    </hash>
-   <hash n="oracle.ide.model.ResourcePaths">
-      <hash n="resourcesContentSet">
-         <list n="constituent-sets">
-            <hash>
-               <list n="pattern-filters">
-                  <string v="+build1.xml"/>
-               </list>
-               <list n="url-path">
-                  <url path="jdev/"/>
-               </list>
-            </hash>
-         </list>
-         <list n="pattern-filters">
-            <string v="+*"/>
-         </list>
-         <list n="url-path">
-            <url path="."/>
-         </list>
-      </hash>
-   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
-         <string v="ADF_FACES"/>
+         <string v="Java"/>
          <string v="JSF"/>
          <string v="ADFc"/>
-         <string v="XML"/>
          <string v="HTML"/>
          <string v="JSP"/>
-         <string v="Java"/>
+         <string v="ADF_FACES"/>
+         <string v="XML"/>
          <string v="Ant"/>
       </list>
    </hash>
-   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration"/>
+   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
+      <value n="makeTarget" v="all"/>
+      <url n="projectBuildfile" path="build.xml"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="deploy"/>
+      </list>
+   </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <value n="internalEncoding" v="Cp1252"/>
       <list n="Javac.commandline.optionlist">
@@ -113,7 +101,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="webapp1TL">
+         <hash n="AdfBcApp_ViewController_webapp1">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -124,10 +112,9 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <value n="contextRoot" v="tlink"/>
             <value n="defaultConnection"/>
-            <url n="earURL" path="deploy/webapp1TL.ear"/>
-            <value n="enterpriseAppName" v="webapp1TL"/>
+            <url n="earURL" path="deploy/AdfBcApp_ViewController_webapp1.ear"/>
+            <value n="enterpriseAppName" v="AdfBcApp_ViewController_webapp1"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -175,23 +162,23 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/webapp1TL.war"/>
+            <url n="jarURL" path="deploy/AdfBcApp_ViewController_webapp1.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="platformType" v="CLOUD"/>
             <value n="platformVersion" v="1.0.0.0"/>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="webapp1TL"/>
+            <value n="profileName" v="AdfBcApp_ViewController_webapp1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="webapp1TL"/>
+         <string v="AdfBcApp_ViewController_webapp1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="TopLinkApp-ViewController-webapp"/>
-      <value n="j2eeWebContextRoot" v="TopLinkApp-ViewController-context-root"/>
+      <value n="j2eeWebAppName" v="AdfBcApp-ViewController-webapp"/>
+      <value n="j2eeWebContextRoot" v="AdfBcApp-ViewController-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
@@ -287,23 +274,35 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JDeveloper Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="SQLJ Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="EJB Data Control"/>
+            <value n="id" v="BC4J Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="EJB 3.0"/>
+            <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="TopLink"/>
+            <value n="id" v="Connection Manager"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Java EE 1.5 API"/>
+            <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -389,23 +388,35 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Oracle XML Parser v2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JDeveloper Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="SQLJ Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="EJB Data Control"/>
+            <value n="id" v="BC4J Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="EJB 3.0"/>
+            <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="TopLink"/>
+            <value n="id" v="Connection Manager"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Java EE 1.5 API"/>
+            <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

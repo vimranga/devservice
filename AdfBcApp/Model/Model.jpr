@@ -54,24 +54,38 @@
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="qa.test.tl.model"/>
-   <hash n="ejbModuleContainer">
-      <value n="ejbVersion" v="3.0"/>
-      <url n="weblogicEjbJarNodeURL" path="src/META-INF/weblogic-ejb-jar.xml"/>
-   </hash>
-   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
-      <value n="hasDataControls" v="true"/>
-   </hash>
+   <value n="defaultPackage" v="model"/>
+   <value n="jbo.JpxName" v="model.Model"/>
+   <value n="JboProject" v="true"/>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
-         <string v="ADFbc"/>
          <string v="Java"/>
-         <string v="Database"/>
-         <string v="TopLink"/>
-         <string v="EJB"/>
+         <string v="ADFbc"/>
       </list>
    </hash>
+   <value n="oracle.jbo.SavedPreferences" v="true"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
+      <list n="copyRes">
+         <string v=".gif"/>
+         <string v=".jpg"/>
+         <string v=".jpeg"/>
+         <string v=".png"/>
+         <string v=".properties"/>
+         <string v=".xml"/>
+         <string v=".ejx"/>
+         <string v=".xcfg"/>
+         <string v=".cpx"/>
+         <string v=".dcx"/>
+         <string v=".sva"/>
+         <string v=".wsdl"/>
+         <string v=".ini"/>
+         <string v=".tld"/>
+         <string v=".tag"/>
+         <string v=".xlf"/>
+         <string v=".xsl"/>
+         <string v=".xsd"/>
+         <string v=".jpx"/>
+      </list>
       <value n="internalEncoding" v="Cp1252"/>
       <list n="Javac.commandline.optionlist">
          <string v="-g"/>
@@ -87,41 +101,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ejb1">
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
-            </hash>
-            <value n="defaultConnection"/>
-            <url n="earURL" path="deploy/ejb1.ear"/>
-            <value n="enterpriseAppName" v="ejb1"/>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="7"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules"/>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="deploy/ejb1.jar"/>
-            <hash n="libraryDependencies">
-               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
-            </hash>
-            <value n="profileClass" v="oracle.jdeveloper.deploy.ejb.EjbProfile"/>
-            <value n="profileName" v="ejb1"/>
-         </hash>
-         <hash n="TopLinkApp_Model_adflibTopLinkApp1">
+         <hash n="AdfBcApp_Model_adflibAdfBcApp1">
             <value n="adflib-connectionDetails" v="true"/>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
@@ -147,33 +127,22 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/TopLinkApp_Model_adflibTopLinkApp1.jar"/>
+            <url n="jarURL" path="deploy/AdfBcApp_Model_adflibAdfBcApp1.jar"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="TopLinkApp_Model_adflibTopLinkApp1"/>
+            <value n="profileName" v="AdfBcApp_Model_adflibAdfBcApp1"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="TopLinkApp_Model_adflibTopLinkApp1"/>
-         <string v="ejb1"/>
+         <string v="AdfBcApp_Model_adflibAdfBcApp1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="TopLinkApp-Model-webapp"/>
-      <value n="j2eeWebContextRoot" v="TopLinkApp-Model-context-root"/>
-   </hash>
-   <hash n="oracle.jdeveloper.model.PathsConfiguration">
-      <hash n="javaContentSet">
-         <list n="pattern-filters">
-            <string v="+**"/>
-         </list>
-         <list n="url-path">
-            <url path="src/"/>
-         </list>
-      </hash>
+      <value n="j2eeWebAppName" v="AdfBcApp-Model-webapp"/>
+      <value n="j2eeWebContextRoot" v="AdfBcApp-Model-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
@@ -220,22 +189,6 @@
             <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
-         <hash>
-            <value n="id" v="TopLink"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="EJB 3.0"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Generic Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle XML Parser v2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -270,36 +223,10 @@
             <value n="id" v="Oracle JDBC"/>
             <value n="isJDK" v="false"/>
          </hash>
-         <hash>
-            <value n="id" v="TopLink"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="EJB 3.0"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Generic Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle XML Parser v2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
-   </hash>
-   <hash n="oracle.toplink.workbench.addin">
-      <hash n="toplink-map-list">
-         <list n="toplink-map">
-            <hash>
-               <value n="project-name" v="tlMap"/>
-               <value n="project-path" v="tlMap/tlMap.mwp"/>
-            </hash>
-         </list>
-      </hash>
    </hash>
    <hash n="ResourceBundleOptions">
       <value n="ADFRestricted" v="true"/>

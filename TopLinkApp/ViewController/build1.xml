@@ -284,7 +284,7 @@
       <fileset dir="${output.dir}" includes="**/*"/>
     </delete>
   </target>
-   <target name="war" description="Create War file" depends="clean,init">
+   <target name="war" description="Create War file" depends="init">
     <taskdef name="ojdeploy"
              classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask"
              uri="oraclelib:OJDeployAntTask"

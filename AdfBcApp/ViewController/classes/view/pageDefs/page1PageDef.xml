@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.63.30" id="page1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DeptView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="DeptView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="EmpView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="EmpView2Iterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DeptView1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DeptView1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DeptView1Iterator" id="Next" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="DeptView1Iterator" id="Last" RequiresUpdateModel="true"
+            Action="last"/>
+    <attributeValues IterBinding="DeptView1Iterator" id="Deptno">
+      <AttrNames>
+        <Item Value="Deptno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DeptView1Iterator" id="Dname">
+      <AttrNames>
+        <Item Value="Dname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DeptView1Iterator" id="Loc">
+      <AttrNames>
+        <Item Value="Loc"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="EmpView2Iterator" id="EmpView2">
+      <nodeDefinition DefName="model.EmpView" Name="EmpView20">
+        <AttrNames>
+          <Item Value="Empno"/>
+          <Item Value="Ename"/>
+          <Item Value="Job"/>
+          <Item Value="Mgr"/>
+          <Item Value="Hiredate"/>
+          <Item Value="Sal"/>
+          <Item Value="Comm"/>
+          <Item Value="Deptno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
