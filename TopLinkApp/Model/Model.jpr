@@ -118,6 +118,8 @@
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
+            <value n="platformType" v="CLOUD"/>
+            <value n="platformVersion" v="1.0.0.0"/>
             <value n="profileClass" v="oracle.jdeveloper.deploy.ejb.EjbProfile"/>
             <value n="profileName" v="ejb1"/>
          </hash>

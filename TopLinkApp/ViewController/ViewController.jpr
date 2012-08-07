@@ -64,6 +64,26 @@
          </hash>
       </list>
    </hash>
+   <hash n="oracle.ide.model.ResourcePaths">
+      <hash n="resourcesContentSet">
+         <list n="constituent-sets">
+            <hash>
+               <list n="pattern-filters">
+                  <string v="+build1.xml"/>
+               </list>
+               <list n="url-path">
+                  <url path="jdev/"/>
+               </list>
+            </hash>
+         </list>
+         <list n="pattern-filters">
+            <string v="+*"/>
+         </list>
+         <list n="url-path">
+            <url path="."/>
+         </list>
+      </hash>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADF_FACES"/>
@@ -78,7 +98,7 @@
    </hash>
    <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
       <value n="makeTarget" v="all"/>
-      <url n="projectBuildfile" path="build.xml"/>
+      <url n="projectBuildfile" path="jdev/build1.xml"/>
       <list n="targetList">
          <string v="all"/>
          <string v="clean"/>
