@@ -7,7 +7,7 @@
     <primary-project xsi:type="xml">META-INF/tlMap.xml</primary-project>
     <login xsi:type="database-login">
       <platform-class>org.eclipse.persistence.platform.database.oracle.Oracle11Platform</platform-class>
-      <datasource>DeveloperServiceDB</datasource>
+      <datasource>database</datasource>
     </login>
   </session>
 </sessions>
