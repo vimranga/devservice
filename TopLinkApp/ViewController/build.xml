@@ -310,7 +310,6 @@
                        value="${oracle.jdeveloper.project.name}"/>
         <ora:parameter name="profile"
                        value="${oracle.jdeveloper.war.profile.name}"/>
-        <ora:parameter name="nocompile" value="false"/>
         <ora:parameter name="outputfile"
                        value="${oracle.jdeveloper.war.outputfile}"/>
       </ora:deploy>
@@ -330,7 +329,6 @@
                        value="${oracle.jdeveloper.workspace.path}"/>
        <ora:parameter name="profile"
                        value="${oracle.jdeveloper.ear.profile.name}"/>
-        <ora:parameter name="nocompile" value="false"/>
         <ora:parameter name="outputfile"
                        value="${oracle.jdeveloper.ear.outputfile}"/>
       </ora:deploy>
