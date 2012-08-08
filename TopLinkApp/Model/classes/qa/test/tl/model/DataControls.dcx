@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.61.92" id="DataControls"
+                    Package="qa.test.tl.model">
+  <AdapterDataControl id="SessionEJBLocal"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.ejb.EjbDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="qa.test.tl.model.SessionEJBLocal"
+                      BeanClass="qa.test.tl.model.SessionEJBLocal"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="qa.test.tl.model.Dept"/>
+      <TypeInfo FullName="qa.test.tl.model.Emp"/>
+    </CreatableTypes>
+    <Source>
+      <ejb-definition ejb-version="3.0" ejb-name="SessionEJB" ejb-type="Session"
+                      ejb-business-interface="qa.test.tl.model.SessionEJBLocal"
+                      ejb-interface-type="local"
+                      initial-context-factory="weblogic.jndi.WLInitialContextFactory"
+                      xmlns="http://xmlns.oracle.com/adfm/adapter/ejb"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

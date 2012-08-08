@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="view1PageDef"
+                Package="qa.test.tl.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="findAllDept.result" DataControl="SessionEJBLocal"
+                    RangeSize="25" BeanClass="qa.test.tl.model.Dept"
+                    id="findAllDeptIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="findAllDeptIterator" Binds="empCollection"
+                      RangeSize="25" DataControl="SessionEJBLocal"
+                      BeanClass="qa.test.tl.model.Emp"
+                      id="empCollectionIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <methodAction id="findAllDept" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="findAllDept"
+                  IsViewObjectMethod="false" DataControl="SessionEJBLocal"
+                  InstanceName="SessionEJBLocal.dataProvider"
+                  ReturnName="data.SessionEJBLocal.methodResults.findAllDept_SessionEJBLocal_dataProvider_findAllDept_result"/>
+    <action IterBinding="findAllDeptIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="findAllDeptIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="findAllDeptIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="findAllDeptIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="findAllDeptIterator" id="deptno">
+      <AttrNames>
+        <Item Value="deptno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="findAllDeptIterator" id="dname">
+      <AttrNames>
+        <Item Value="dname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="findAllDeptIterator" id="loc">
+      <AttrNames>
+        <Item Value="loc"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="empCollectionIterator" id="empCollection">
+      <nodeDefinition DefName="qa.test.tl.model.Emp" Name="empCollection0">
+        <AttrNames>
+          <Item Value="comm"/>
+          <Item Value="empno"/>
+          <Item Value="ename"/>
+          <Item Value="hiredate"/>
+          <Item Value="job"/>
+          <Item Value="sal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
