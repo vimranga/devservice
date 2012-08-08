@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="Cp1252"?>
+<descriptor type="relational">
+   <name>qa.test.tl.model.Dept</name>
+   <class-handle>
+      <type-name>qa.test.tl.model.Dept</type-name>
+   </class-handle>
+   <transactional-policy type="relational">
+      <descriptor-alias>Dept</descriptor-alias>
+      <refresh-cache-policy/>
+      <caching-policy/>
+      <query-manager type="relational">
+         <query-list>
+            <query type="relational-read-all">
+               <name>findAllDept</name>
+               <relational-options>
+                  <format type="expression">
+                     <main-compound-expression type="compound">
+                        <operator-type>AND</operator-type>
+                     </main-compound-expression>
+                  </format>
+               </relational-options>
+            </query>
+         </query-list>
+         <insert-query type="insert">
+            <relational-options>
+               <format type="sql">
+                  <query-string></query-string>
+               </format>
+            </relational-options>
+         </insert-query>
+         <delete-query type="delete">
+            <relational-options>
+               <format type="sql">
+                  <query-string></query-string>
+               </format>
+            </relational-options>
+         </delete-query>
+         <update-query type="update">
+            <relational-options>
+               <format type="sql">
+                  <query-string></query-string>
+               </format>
+            </relational-options>
+         </update-query>
+         <read-object-query type="read-object">
+            <relational-options>
+               <format type="sql">
+                  <query-string></query-string>
+               </format>
+            </relational-options>
+         </read-object-query>
+         <read-all-query type="read-all">
+            <relational-options>
+               <format type="sql">
+                  <query-string></query-string>
+               </format>
+            </relational-options>
+         </read-all-query>
+      </query-manager>
+      <locking-policy type="relational"/>
+      <primary-key-policy>
+         <primary-key-handles>
+            <column-handle>
+               <column-table-name>GSUI.DEPT</column-table-name>
+               <column-name>DEPTNO</column-name>
+            </column-handle>
+         </primary-key-handles>
+      </primary-key-policy>
+   </transactional-policy>
+   <mappings>
+      <mapping type="direct-to-field">
+         <name>deptno</name>
+         <attribute-handle>
+            <attribute-declaring-type-name>qa.test.tl.model.Dept</attribute-declaring-type-name>
+            <attribute-name>deptno</attribute-name>
+         </attribute-handle>
+         <column-handle>
+            <column-table-name>GSUI.DEPT</column-table-name>
+            <column-name>DEPTNO</column-name>
+         </column-handle>
+      </mapping>
+      <mapping type="direct-to-field">
+         <name>dname</name>
+         <attribute-handle>
+            <attribute-declaring-type-name>qa.test.tl.model.Dept</attribute-declaring-type-name>
+            <attribute-name>dname</attribute-name>
+         </attribute-handle>
+         <column-handle>
+            <column-table-name>GSUI.DEPT</column-table-name>
+            <column-name>DNAME</column-name>
+         </column-handle>
+      </mapping>
+      <mapping type="one-to-many">
+         <name>empCollection</name>
+         <attribute-handle>
+            <attribute-declaring-type-name>qa.test.tl.model.Dept</attribute-declaring-type-name>
+            <attribute-name>empCollection</attribute-name>
+         </attribute-handle>
+         <reference-descriptor-handle>
+            <descriptor-name>qa.test.tl.model.Emp</descriptor-name>
+         </reference-descriptor-handle>
+         <indirection-type>transparentIndirection</indirection-type>
+         <concrete-reference-handle>
+            <reference-table-name>GSUI.EMP</reference-table-name>
+            <reference-name>EMP_FOREIGN_KEY1</reference-name>
+         </concrete-reference-handle>
+         <container-policy type="list">
+            <container-class>
+               <uses-default-container-class>true</uses-default-container-class>
+            </container-class>
+         </container-policy>
+      </mapping>
+      <mapping type="direct-to-field">
+         <name>loc</name>
+         <attribute-handle>
+            <attribute-declaring-type-name>qa.test.tl.model.Dept</attribute-declaring-type-name>
+            <attribute-name>loc</attribute-name>
+         </attribute-handle>
+         <column-handle>
+            <column-table-name>GSUI.DEPT</column-table-name>
+            <column-name>LOC</column-name>
+         </column-handle>
+      </mapping>
+   </mappings>
+   <primary-table-handle>
+      <table-name>GSUI.DEPT</table-name>
+   </primary-table-handle>
+</descriptor>
