@@ -1,8 +1,0 @@
-<?xml version = '1.0' standalone = 'yes' ?>
-<ojdeploy-build>
-  <deploy>
-    <parameter name="workspace" value="C:\Jdeveloper\Deployment\CloudTesting\code2cloudApps\InternalEA\finaltesting\devservice\TopLinkApp\TopLinkApp.jws"/>
-    <parameter name="profile" value="application1TLOne"/>
-    <parameter name="outputfile" value="C:\Jdeveloper\Deployment\CloudTesting\code2cloudApps\InternalEA\finaltesting\devservice\TopLinkApp\ViewController\deploy\application1TLOne"/>
-  </deploy>
-</ojdeploy-build>
