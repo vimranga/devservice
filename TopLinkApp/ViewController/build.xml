@@ -312,7 +312,7 @@
                        value="${oracle.jdeveloper.war.profile.name}"/>
         <ora:parameter name="outputfile"
                        value="${oracle.jdeveloper.war.outputfile}"/>
-                       <ora:parameter name="nocompile" value="false"/> 
+                       <ora:parameter name="nocompile" value="true"/> 
       </ora:deploy>
     </ora:ojdeploy>
   </target> 
@@ -332,7 +332,7 @@
                        value="${oracle.jdeveloper.ear.profile.name}"/>
         <ora:parameter name="outputfile"
                        value="${oracle.jdeveloper.ear.outputfile}"/>
-                       <ora:parameter name="nocompile" value="false"/> 
+                       <ora:parameter name="nocompile" value="true"/> 
       </ora:deploy>
     </ora:ojdeploy>
   </target>
