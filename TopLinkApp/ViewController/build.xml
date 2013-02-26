@@ -316,7 +316,7 @@
       </ora:deploy>
     </ora:ojdeploy>
   </target> 
-  <target name="ear" description="Create an Ear" depends="init">
+  <target name="deploy" description="Create an Ear" depends="init">
     <taskdef name="ojdeploy"
              classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask"
              uri="oraclelib:OJDeployAntTask"
