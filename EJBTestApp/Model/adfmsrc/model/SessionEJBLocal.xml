@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="SessionEJBLocal" Package="model" BeanClass="model.SessionEJBLocal"
+          isJavaBased="true">
+  <AccessorAttribute id="empFindAll" IsCollection="true" BeanClass="model.Emp"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <AccessorAttribute id="deptFindAll" IsCollection="true" BeanClass="model.Dept"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <MethodAccessor IsCollection="false" Type="model.Emp" BeanClass="model.Emp"
+                  id="persistEmp" ReturnNodeName="Emp">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="model.Emp" BeanClass="model.Emp"
+                  id="mergeEmp" ReturnNodeName="Emp">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeEmp"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="model.Dept" BeanClass="model.Dept"
+                  id="persistDept" ReturnNodeName="Dept">
+    <ParameterInfo id="dept" Type="model.Dept" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="model.Dept" BeanClass="model.Dept"
+                  id="mergeDept" ReturnNodeName="Dept">
+    <ParameterInfo id="dept" Type="model.Dept" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="removeDept"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="dept" Type="model.Dept" isStructured="true"/>
+  </MethodAccessor>
+</JavaBean>

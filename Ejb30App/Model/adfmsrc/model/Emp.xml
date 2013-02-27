@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.62.21"
+          id="Emp" Package="model" BeanClass="model.Emp" isJavaBased="true">
+  <Attribute Name="comm" Type="java.lang.Double"/>
+  <Attribute Name="deptno" Type="java.lang.Long"/>
+  <Attribute Name="empno" PrimaryKey="true" Type="java.lang.Long"/>
+  <Attribute Name="ename" Type="java.lang.String"/>
+  <Attribute Name="hiredate" Type="java.sql.Timestamp"/>
+  <Attribute Name="job" Type="java.lang.String"/>
+  <Attribute Name="mgr" Type="java.lang.Long"/>
+  <Attribute Name="sal" Type="java.lang.Double"/>
+  <ConstructorMethod IsCollection="true" Type="model.Emp" BeanClass="model.Emp"
+                     id="Emp">
+    <ParameterInfo id="comm" Type="java.lang.Double" isStructured="false"/>
+    <ParameterInfo id="deptno" Type="java.lang.Long" isStructured="false"/>
+    <ParameterInfo id="empno" Type="java.lang.Long" isStructured="false"/>
+    <ParameterInfo id="ename" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="hiredate" Type="java.sql.Timestamp"
+                   isStructured="false"/>
+    <ParameterInfo id="job" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="mgr" Type="java.lang.Long" isStructured="false"/>
+    <ParameterInfo id="sal" Type="java.lang.Double" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true" Type="model.Emp" BeanClass="model.Emp"
+                     id="Emp"/>
+</JavaBean>

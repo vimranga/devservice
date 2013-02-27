@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ParentTF">
+    <default-activity id="__1">DeptView</default-activity>
+    <view id="DeptView">
+      <page>/DeptView.jspx</page>
+    </view>
+    <view id="EmpView">
+      <page>/EmpView.jspx</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome id="__12">
+        <name>exit</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">DeptView</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">detail</from-outcome>
+        <to-activity-id id="__4">EmpView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome id="__15">exit</from-outcome>
+        <to-activity-id id="__13">taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">EmpView</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">back</from-outcome>
+        <to-activity-id id="__10">DeptView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

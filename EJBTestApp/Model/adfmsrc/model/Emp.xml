@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="Emp" Package="model" BeanClass="model.Emp" isJavaBased="true">
+  <Attribute Name="comm" Type="java.lang.Double"/>
+  <Attribute Name="empno" PrimaryKey="true" Type="java.lang.Long"/>
+  <Attribute Name="ename" Type="java.lang.String"/>
+  <Attribute Name="hiredate" Type="java.sql.Timestamp"/>
+  <Attribute Name="job" Type="java.lang.String"/>
+  <Attribute Name="sal" Type="java.lang.Double"/>
+  <AccessorAttribute id="dept" IsCollection="false" BeanClass="model.Dept"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="emp" IsCollection="false" BeanClass="model.Emp"
+                     CollectionBeanClass="UpdateableSingleValue"/>
+  <AccessorAttribute id="empList" IsCollection="true" RemoveMethod="removeEmp"
+                     AddMethod="addEmp" BeanClass="model.Emp"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeEmp"/>
+      <Property Name="AddMethod" Value="addEmp"/>
+    </Properties>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="false" Type="model.Emp" BeanClass="model.Emp"
+                  id="addEmp" ReturnNodeName="Emp">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="model.Emp" BeanClass="model.Emp"
+                  id="removeEmp" ReturnNodeName="Emp">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true" Type="model.Emp" BeanClass="model.Emp"
+                     id="Emp">
+    <ParameterInfo id="comm" Type="java.lang.Double" isStructured="false"/>
+    <ParameterInfo id="dept" Type="model.Dept" isStructured="true"/>
+    <ParameterInfo id="empno" Type="java.lang.Long" isStructured="false"/>
+    <ParameterInfo id="ename" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="hiredate" Type="java.sql.Timestamp"
+                   isStructured="false"/>
+    <ParameterInfo id="job" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+    <ParameterInfo id="sal" Type="java.lang.Double" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true" Type="model.Emp" BeanClass="model.Emp"
+                     id="Emp"/>
+</JavaBean>

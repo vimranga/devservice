@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="EmpViewPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmpView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="EmpView2Iterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmpView2Iterator" id="Empno">
+      <AttrNames>
+        <Item Value="Empno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpView2Iterator" id="Ename">
+      <AttrNames>
+        <Item Value="Ename"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpView2Iterator" id="Job">
+      <AttrNames>
+        <Item Value="Job"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="EmpView2Iterator"
+                  Uses="LOV_Mgr" id="Mgr"/>
+    <attributeValues IterBinding="EmpView2Iterator" id="Hiredate">
+      <AttrNames>
+        <Item Value="Hiredate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpView2Iterator" id="Sal">
+      <AttrNames>
+        <Item Value="Sal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpView2Iterator" id="Comm">
+      <AttrNames>
+        <Item Value="Comm"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="EmpView2Iterator"
+                  Uses="LOV_Deptno" id="Deptno"/>
+    <attributeValues IterBinding="EmpView2Iterator" id="Total">
+      <AttrNames>
+        <Item Value="Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpView2Iterator" id="Percentage">
+      <AttrNames>
+        <Item Value="Percentage"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmpView2Iterator" id="First" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="EmpView2Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmpView2Iterator" id="Next" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="EmpView2Iterator" id="Last" RequiresUpdateModel="true"
+            Action="last"/>
+    <action IterBinding="EmpView2Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="EmpView2Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

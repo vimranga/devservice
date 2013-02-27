@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="view1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SessionEJBLocal"
+              id="SessionEJBLocalIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="SessionEJBLocalIterator"
+                      Binds="deptFindAll" RangeSize="25"
+                      DataControl="SessionEJBLocal" BeanClass="model.Dept"
+                      id="deptFindAllIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="deptFindAllIterator" Binds="empList"
+                      RangeSize="25" DataControl="SessionEJBLocal"
+                      BeanClass="model.Emp" id="empListIterator"
+                      ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <action IterBinding="deptFindAllIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="deptFindAllIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="deptFindAllIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="deptFindAllIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="deptFindAllIterator" id="deptno">
+      <AttrNames>
+        <Item Value="deptno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="deptFindAllIterator" id="dname">
+      <AttrNames>
+        <Item Value="dname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="deptFindAllIterator" id="loc">
+      <AttrNames>
+        <Item Value="loc"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="empListIterator" id="empList">
+      <nodeDefinition DefName="model.Emp" Name="empList0">
+        <AttrNames>
+          <Item Value="comm"/>
+          <Item Value="empno"/>
+          <Item Value="ename"/>
+          <Item Value="hiredate"/>
+          <Item Value="job"/>
+          <Item Value="sal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

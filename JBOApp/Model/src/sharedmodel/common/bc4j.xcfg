@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="sharedmodel.SharedDeptAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="model.Model" name="SharedDeptAMLocal" ApplicationName="sharedmodel.SharedDeptAM">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="sharedmodel.SharedDeptAM"/>
+         <Custom JDBCDataSource="database"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.shared.txn="mytrans" jbo.project="model.Model" name="SharedDeptAMShared" ApplicationName="sharedmodel.SharedDeptAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="sharedmodel.SharedDeptAM"/>
+         <Custom JDBCDataSource="database"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="sharedmodel.SharedMgrAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="model.Model" name="SharedMgrAMLocal" ApplicationName="sharedmodel.SharedMgrAM">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="sharedmodel.SharedMgrAM"/>
+         <Custom JDBCDataSource="database"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.shared.txn="mytrans" jbo.project="model.Model" name="SharedMgrAMShared" ApplicationName="sharedmodel.SharedMgrAM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="sharedmodel.SharedMgrAM"/>
+         <Custom JDBCDataSource="database"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

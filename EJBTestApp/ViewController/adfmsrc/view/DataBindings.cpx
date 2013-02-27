@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.61.92" id="DataBindings" SeparateXMLFiles="false"
+             Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/view1.jspx" usageId="view_view1PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_view1PageDef" path="view.pageDefs.view1PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="SessionEJBLocal" path="model.SessionEJBLocal"/>
+  </dataControlUsages>
+</Application>

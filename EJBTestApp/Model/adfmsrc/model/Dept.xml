@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="Dept" Package="model" BeanClass="model.Dept" isJavaBased="true">
+  <Attribute Name="deptno" PrimaryKey="true" Type="java.lang.Long"/>
+  <Attribute Name="dname" Type="java.lang.String"/>
+  <Attribute Name="loc" Type="java.lang.String"/>
+  <AccessorAttribute id="empList" IsCollection="true" RemoveMethod="removeEmp"
+                     AddMethod="addEmp" BeanClass="model.Emp"
+                     CollectionBeanClass="UpdateableCollection">
+    <Properties>
+      <Property Name="RemoveMethod" Value="removeEmp"/>
+      <Property Name="AddMethod" Value="addEmp"/>
+    </Properties>
+  </AccessorAttribute>
+  <MethodAccessor IsCollection="false" Type="model.Emp" BeanClass="model.Emp"
+                  id="addEmp" ReturnNodeName="Emp">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="model.Emp" BeanClass="model.Emp"
+                  id="removeEmp" ReturnNodeName="Emp">
+    <ParameterInfo id="emp" Type="model.Emp" isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true" Type="model.Dept"
+                     BeanClass="model.Dept" id="Dept">
+    <ParameterInfo id="deptno" Type="java.lang.Long" isStructured="false"/>
+    <ParameterInfo id="dname" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="loc" Type="java.lang.String" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true" Type="model.Dept"
+                     BeanClass="model.Dept" id="Dept"/>
+</JavaBean>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="EmpBean" Package="model" BeanClass="model.EmpBean"
+          isJavaBased="true">
+  <Attribute Name="empno" IsUpdateable="0" Type="int"/>
+  <Attribute Name="ename" IsUpdateable="0" Type="java.lang.String"/>
+  <Attribute Name="job" IsUpdateable="0" Type="java.lang.String"/>
+  <Attribute Name="deptno" IsUpdateable="0" Type="int"/>
+  <MethodAccessor IsCollection="false" Type="int" id="size"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="boolean" id="isEmpty"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="true" Type="? extends java.lang.Object" id="get"
+                  ReturnNodeName="V" CollectionBeanClass="ReadOnlySingleValue">
+    <ParameterInfo id="key" Type="java.lang.Object" isStructured="false"/>
+    <Attribute Name="element" Type="V"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="boolean" id="containsKey"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="key" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="? extends java.lang.Object" id="put"
+                  ReturnNodeName="V" CollectionBeanClass="ReadOnlySingleValue">
+    <ParameterInfo id="key" Type="K" isStructured="false"/>
+    <ParameterInfo id="value" Type="V" isStructured="false"/>
+    <Attribute Name="element" Type="V"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="putAll"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="m" Type="java.util.Map" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="? extends java.lang.Object"
+                  id="remove" ReturnNodeName="V"
+                  CollectionBeanClass="ReadOnlySingleValue">
+    <ParameterInfo id="key" Type="java.lang.Object" isStructured="false"/>
+    <Attribute Name="element" Type="V"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="clear"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="boolean" id="containsValue"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="value" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="java.lang.Object" id="clone"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="true" Type="java.util.Set" id="keySet"
+                  ReturnNodeName="K" CollectionBeanClass="UpdateableCollection">
+    <Attribute Name="element" Type="K"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="java.util.Collection" id="values"
+                  ReturnNodeName="V" CollectionBeanClass="UpdateableCollection">
+    <Attribute Name="element" Type="V"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="true" Type="java.util.Set" id="entrySet"
+                  ReturnNodeName="Entry&lt;K, V>"
+                  CollectionBeanClass="UpdateableCollection">
+    <Attribute Name="element" Type="java.util.Map.Entry&lt;K, V>"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="boolean" id="equals"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="o" Type="java.lang.Object" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="int" id="hashCode"
+                  ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="java.lang.String" id="toString"
+                  ReturnNodeName="Return"/>
+  <ConstructorMethod IsCollection="true" Type="model.EmpBean"
+                     BeanClass="model.EmpBean" id="EmpBean">
+    <ParameterInfo id="n" Type="int" isStructured="false"/>
+    <ParameterInfo id="e" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="l" Type="java.lang.String" isStructured="false"/>
+    <ParameterInfo id="d" Type="int" isStructured="false"/>
+  </ConstructorMethod>
+  <ConstructorMethod IsCollection="true" Type="model.EmpBean"
+                     BeanClass="model.EmpBean" id="EmpBean"/>
+</JavaBean>

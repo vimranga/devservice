@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">7a82424b-8756-4fea-8848-e2a58c442fec</identifier>
+  </ID>
+  <name>VIMRANGA</name>
+</schema>

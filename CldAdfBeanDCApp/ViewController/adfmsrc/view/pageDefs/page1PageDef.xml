@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="page1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SampleBean"
+              id="SampleBeanIterator" ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="SampleBeanIterator" Binds="depts"
+                      RangeSize="25" DataControl="SampleBean"
+                      BeanClass="model.DeptBean" id="deptsIterator"
+                      ChangeEventPolicy="ppr"/>
+    <accessorIterator MasterBinding="deptsIterator" Binds="emps" RangeSize="25"
+                      DataControl="SampleBean" BeanClass="model.EmpBean"
+                      id="empsIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <action IterBinding="deptsIterator" id="First" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="deptsIterator" id="Previous" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="deptsIterator" id="Next" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="deptsIterator" id="Last" RequiresUpdateModel="true"
+            Action="last"/>
+    <attributeValues IterBinding="deptsIterator" id="deptno">
+      <AttrNames>
+        <Item Value="deptno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="deptsIterator" id="dname">
+      <AttrNames>
+        <Item Value="dname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="deptsIterator" id="loc">
+      <AttrNames>
+        <Item Value="loc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="deptsIterator" id="hasmanager">
+      <AttrNames>
+        <Item Value="hasmanager"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="empsIterator" id="emps">
+      <nodeDefinition DefName="model.EmpBean" Name="emps0">
+        <AttrNames>
+          <Item Value="empno"/>
+          <Item Value="ename"/>
+          <Item Value="job"/>
+          <Item Value="deptno"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.61.92"
+          id="SampleBean" Package="model" BeanClass="model.SampleBean"
+          isJavaBased="true">
+  <AccessorAttribute id="depts" IsCollection="true" BeanClass="model.DeptBean"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <ConstructorMethod IsCollection="true" Type="model.SampleBean"
+                     BeanClass="model.SampleBean" id="SampleBean"/>
+</JavaBean>

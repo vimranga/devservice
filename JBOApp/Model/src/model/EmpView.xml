@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpView"
+  Version="11.1.1.61.92"
+  InheritPersonalization="true"
+  SelectList="Emp.EMPNO, 
+       Emp.ENAME, 
+       Emp.JOB, 
+       Emp.MGR, 
+       Emp.HIREDATE, 
+       Emp.SAL, 
+       Emp.COMM, 
+       Emp.DEPTNO"
+  FromList="EMP Emp"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="SharedDeptAM_DeptLOV1_1"
+    ViewObjectName="sharedmodel.DeptLOV"
+    AMUsageName="SharedDeptAM"
+    ViewInstanceName="DeptLOV1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SharedMgrAM_managerListForDepartment1_1"
+    ViewObjectName="sharedmodel.managerListForDepartment"
+    AMUsageName="SharedMgrAM"
+    ViewInstanceName="managerListForDepartment1">
+    <ParameterMap>
+      <PIMap Variable="CurrentDept">
+        <TransientExpression><![CDATA[Deptno]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="CurrentEmp">
+        <TransientExpression><![CDATA[Empno]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_Deptno"
+    ListVOName="SharedDeptAM_DeptLOV1_1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Deptno_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Deptno"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Deptno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Deptno"/>
+      <Item Value="Dname"/>
+      <Item Value="Loc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Mgr"
+    ListVOName="SharedMgrAM_managerListForDepartment1_1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Mgr_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Mgr"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Empno"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Deptno"/>
+      <Item Value="Empno"/>
+      <Item Value="Ename"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Emp"
+    Entity="model.Emp"/>
+  <ViewAttribute
+    Name="Empno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Empno"
+    EntityUsage="Emp"
+    AliasName="EMPNO"/>
+  <ViewAttribute
+    Name="Ename"
+    PrecisionRule="true"
+    EntityAttrName="Ename"
+    EntityUsage="Emp"
+    AliasName="ENAME"/>
+  <ViewAttribute
+    Name="Job"
+    PrecisionRule="true"
+    EntityAttrName="Job"
+    EntityUsage="Emp"
+    AliasName="JOB"/>
+  <ViewAttribute
+    Name="Mgr"
+    LOVName="LOV_Mgr"
+    PrecisionRule="true"
+    EntityAttrName="Mgr"
+    EntityUsage="Emp"
+    AliasName="MGR">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Hiredate"
+    PrecisionRule="true"
+    EntityAttrName="Hiredate"
+    EntityUsage="Emp"
+    AliasName="HIREDATE"/>
+  <ViewAttribute
+    Name="Sal"
+    PrecisionRule="true"
+    EntityAttrName="Sal"
+    EntityUsage="Emp"
+    AliasName="SAL"/>
+  <ViewAttribute
+    Name="Comm"
+    PrecisionRule="true"
+    EntityAttrName="Comm"
+    EntityUsage="Emp"
+    AliasName="COMM">
+    <TransientExpression><![CDATA[if (Comm!=null && Percentage !=null)
+{
+return Comm*Percentage;
+}
+else {return Comm;}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Percentage"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Deptno"
+    LOVName="LOV_Deptno"
+    PrecisionRule="true"
+    EntityAttrName="Deptno"
+    EntityUsage="Emp"
+    AliasName="DEPTNO">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Total"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    Passivate="true"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[if (Comm !=null && Sal !=null)
+{
+return Comm+Sal;
+}else if (Comm!=null)
+{
+return Comm;
+}else if (Sal !=null)
+{return Sal;}
+else{
+return 0;}]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Comm"/>
+      <Item
+        Value="Sal"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Percentage"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    DefaultValue="1"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    Passivate="true"
+    SQLType="VARCHAR"/>
+  <ViewCriteria
+    Name="EmpViewCriteria"
+    ViewObjectName="model.EmpView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Sal"
+        ViewAttribute="Sal"
+        Operator=">="
+        Conjunction="AND"
+        Value="1000"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="EmpViewCriteria_vcrow0_Comm"
+        ViewAttribute="Comm"
+        Operator="ISNOTBLANK"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>

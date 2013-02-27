@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:panelHeader text="deptFindAll" id="ph1">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage label="#{bindings.deptno.hints.label}"
+                                       id="plam1">
+                <af:outputText value="#{bindings.deptno.inputValue}" id="ot8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.deptno.format}"/>
+                </af:outputText>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.dname.hints.label}"
+                                       id="plam2">
+                <af:outputText value="#{bindings.dname.inputValue}" id="ot7"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.loc.hints.label}"
+                                       id="plam3">
+                <af:outputText value="#{bindings.loc.inputValue}" id="ot6"/>
+              </af:panelLabelAndMessage>
+              <f:facet name="footer">
+                <af:panelGroupLayout layout="horizontal" id="pgl1">
+                  <af:commandButton actionListener="#{bindings.First.execute}"
+                                    text="First"
+                                    disabled="#{!bindings.First.enabled}"
+                                    partialSubmit="true" id="cb3"/>
+                  <af:commandButton actionListener="#{bindings.Previous.execute}"
+                                    text="Previous"
+                                    disabled="#{!bindings.Previous.enabled}"
+                                    partialSubmit="true" id="cb1"/>
+                  <af:commandButton actionListener="#{bindings.Next.execute}"
+                                    text="Next"
+                                    disabled="#{!bindings.Next.enabled}"
+                                    partialSubmit="true" id="cb2"/>
+                  <af:commandButton actionListener="#{bindings.Last.execute}"
+                                    text="Last"
+                                    disabled="#{!bindings.Last.enabled}"
+                                    partialSubmit="true" id="cb4"/>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="empList" id="ph2">
+            <af:table rows="#{bindings.empList.rangeSize}"
+                      fetchSize="#{bindings.empList.rangeSize}"
+                      emptyText="#{bindings.empList.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      var="row" value="#{bindings.empList.collectionModel}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.empList.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.empList.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1">
+              <af:column headerText="#{bindings.empList.hints.comm.label}"
+                         sortProperty="comm" sortable="false" id="c6">
+                <af:outputText value="#{row.comm}" id="ot3">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.empList.hints.comm.format}"/>
+                </af:outputText>
+              </af:column>
+               
+              <af:column headerText="#{bindings.empList.hints.empno.label}"
+                         sortProperty="empno" sortable="false" id="c4">
+                <af:outputText value="#{row.empno}" id="ot4">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.empList.hints.empno.format}"/>
+                </af:outputText>
+              </af:column>
+               
+              <af:column headerText="#{bindings.empList.hints.ename.label}"
+                         sortProperty="ename" sortable="false" id="c1">
+                <af:outputText value="#{row.ename}" id="ot9"/>
+              </af:column>
+               
+              <af:column headerText="#{bindings.empList.hints.hiredate.label}"
+                         sortProperty="hiredate" sortable="false" id="c3">
+                <af:outputText value="#{row.hiredate}" id="ot2">
+                  <af:convertDateTime pattern="#{bindings.empList.hints.hiredate.format}"/>
+                </af:outputText>
+              </af:column>
+               
+              <af:column headerText="#{bindings.empList.hints.job.label}"
+                         sortProperty="job" sortable="false" id="c2">
+                <af:outputText value="#{row.job}" id="ot5"/>
+              </af:column>
+               
+              <af:column headerText="#{bindings.empList.hints.sal.label}"
+                         sortProperty="sal" sortable="false" id="c5">
+                <af:outputText value="#{row.sal}" id="ot1">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.empList.hints.sal.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

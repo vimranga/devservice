@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.61.92"
+  InheritPersonalization="true"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DeptView1"
+    ViewObjectName="model.DeptView"/>
+  <ViewUsage
+    Name="EmpView1"
+    ViewObjectName="model.EmpView"/>
+  <ViewUsage
+    Name="EmpView2"
+    ViewObjectName="model.EmpView"/>
+  <ViewLinkUsage
+    Name="PworksInDeptLink1"
+    ViewLinkObjectName="model.PworksInDeptLink"
+    SrcViewUsageName="model.AppModule.DeptView1"
+    DstViewUsageName="model.AppModule.EmpView2"
+    Reversed="false"/>
+</AppModule>
