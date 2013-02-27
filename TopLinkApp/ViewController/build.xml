@@ -288,7 +288,7 @@
     <tstamp/>
     <mkdir dir="${output.dir}"/>
   </target>
-  <target name="all" description="Build the project" depends="war,ear"/>
+  <target name="all" description="Build the project" depends="war,deploy"/>
   <target name="clean" description="Clean the project">
     <delete includeemptydirs="true" quiet="true">
       <fileset dir="${output.dir}" includes="**/*"/>
