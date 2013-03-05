@@ -128,4 +128,7 @@
     <local>model.SessionEJBLocal</local>
     <ejb-link>SessionEJB</ejb-link>
   </ejb-local-ref>
+  <welcome-file-list>
+    <welcome-file>/faces/view1.jspx</welcome-file>
+  </welcome-file-list>
 </web-app>

@@ -29,7 +29,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <value n="defaultConnection"/>
+            <value n="defaultConnection" v="&lt;None>"/>
             <hash n="dependencies">
                <list n="dependencyList">
                   <hash>
@@ -74,8 +74,6 @@
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
-            <value n="platformType" v="CLOUD"/>
-            <value n="platformVersion" v="1.0.0.0"/>
             <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
             <value n="profileName" v="AdfBcApp_application1"/>
          </hash>

@@ -128,4 +128,7 @@
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
   </mime-mapping>
+  <welcome-file-list>
+    <welcome-file>/faces/start</welcome-file>
+  </welcome-file-list>
 </web-app>
