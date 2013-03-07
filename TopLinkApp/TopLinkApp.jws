@@ -32,6 +32,12 @@
                <list n="dependencyList">
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
+                     <url n="ownerURL" path="Model/Model.jpr"/>
+                     <value n="pathInEar" v=""/>
+                     <value n="profileName" v="tlEjb"/>
+                  </hash>
+                  <hash>
+                     <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                      <url n="ownerURL" path="ViewController/ViewController.jpr"/>
                      <value n="pathInEar" v=""/>
                      <value n="profileName" v="webapp1TL"/>
