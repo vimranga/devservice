@@ -82,5 +82,6 @@
       <list n="profileList">
          <string v="JBOApp_application1"/>
       </list>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
 </jws:workspace>
