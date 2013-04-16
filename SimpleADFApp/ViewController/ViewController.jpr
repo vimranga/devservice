@@ -103,6 +103,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
+            <value n="contextRoot" v="SimpleADFApp"/>
             <value n="defaultConnection"/>
             <url n="earURL" path="deploy/SimpleADFApp_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="SimpleADFApp_ViewController_webapp1"/>

@@ -125,6 +125,17 @@
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
   </mime-mapping>
+  <security-constraint>
+    <display-name>SimpleADFApp</display-name>
+    <web-resource-collection>
+      <web-resource-name>SimpleADFApp</web-resource-name>
+      <url-pattern>/SimpleADFApp/*</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+  <login-config>
+    <auth-method>CLIENT-CERT</auth-method>
+    <realm-name>default</realm-name>
+  </login-config>
   <welcome-file-list>
     <welcome-file>/faces/DeptEmp.jspx</welcome-file>
   </welcome-file-list>
