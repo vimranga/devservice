@@ -102,6 +102,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
+            <value n="contextRoot" v="CldAdfBeanDCApp"/>
             <value n="defaultConnection"/>
             <url n="earURL" path="deploy/CldAdfBeanDCApp_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="CldAdfBeanDCApp_ViewController_webapp1"/>

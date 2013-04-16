@@ -103,7 +103,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <value n="contextRoot" v="jboapp"/>
+            <value n="contextRoot" v="JBOApp"/>
             <value n="defaultConnection"/>
             <url n="earURL" path="deploy/JBOApp_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="JBOApp_ViewController_webapp1"/>

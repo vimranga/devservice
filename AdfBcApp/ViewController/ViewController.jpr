@@ -104,6 +104,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
+            <value n="contextRoot" v="AdfBcApp"/>
             <value n="defaultConnection"/>
             <url n="earURL" path="deploy/AdfBcApp_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="AdfBcApp_ViewController_webapp1"/>

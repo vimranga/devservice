@@ -121,6 +121,17 @@
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
   </mime-mapping>
+  <security-constraint>
+    <display-name>AdfBcApp</display-name>
+    <web-resource-collection>
+      <web-resource-name>AdfBcApp</web-resource-name>
+      <url-pattern>/AdfBcApp/*</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+  <login-config>
+    <auth-method>CLIENT-CERT</auth-method>
+    <realm-name>default</realm-name>
+  </login-config>
   <welcome-file-list>
     <welcome-file>/faces/page1.jspx</welcome-file>
   </welcome-file-list>

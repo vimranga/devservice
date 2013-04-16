@@ -102,6 +102,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
+            <value n="contextRoot" v="Ejb30App"/>
             <url n="earURL" path="deploy/Ejb30App_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="Ejb30App_ViewController_webapp1"/>
             <hash n="fileGroups">

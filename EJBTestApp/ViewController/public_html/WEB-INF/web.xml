@@ -128,6 +128,17 @@
     <local>model.SessionEJBLocal</local>
     <ejb-link>SessionEJB</ejb-link>
   </ejb-local-ref>
+  <security-constraint>
+    <display-name>EJBTestApp</display-name>
+    <web-resource-collection>
+      <web-resource-name>EJBTestApp</web-resource-name>
+      <url-pattern>/EJBTestApp/*</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+  <login-config>
+    <auth-method>CLIENT-CERT</auth-method>
+    <realm-name>default</realm-name>
+  </login-config>
   <welcome-file-list>
     <welcome-file>/faces/view1.jspx</welcome-file>
   </welcome-file-list>

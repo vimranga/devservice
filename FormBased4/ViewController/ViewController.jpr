@@ -107,6 +107,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
+            <value n="contextRoot" v="FormBased4"/>
             <value n="defaultConnection"/>
             <url n="earURL" path="deploy/FormBased4_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="FormBased4_ViewController_webapp1"/>

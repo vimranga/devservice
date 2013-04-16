@@ -102,7 +102,7 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <value n="contextRoot" v="ejbtest11"/>
+            <value n="contextRoot" v="EJBTestApp"/>
             <value n="defaultConnection"/>
             <url n="earURL" path="deploy/EJBTestApp_ViewController_webapp1.ear"/>
             <value n="enterpriseAppName" v="EJBTestApp_ViewController_webapp1"/>
