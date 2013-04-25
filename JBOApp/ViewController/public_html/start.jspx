@@ -9,7 +9,7 @@
       <af:form id="f1">
         <af:commandButton text="start" id="cb1" action="start"/>
         <af:commandButton text="querypage" id="cb2" action="query"/>
-        <af:commandButton text="DummyButton11112222333" id="cb3"/>
+        <af:commandButton text="DummyButton" id="cb3"/>
       </af:form>
     </af:document>
   </f:view>
