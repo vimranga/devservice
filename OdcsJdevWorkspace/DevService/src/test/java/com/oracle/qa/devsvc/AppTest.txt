@@ -1,0 +1,329 @@
+package com.oracle.qa.devsvc;
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.WebResource.Builder;
+import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Method;
+import java.net.URI;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Logger;
+import javax.ws.rs.core.MultivaluedMap;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
+import static org.junit.Assert.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+
+/**
+ *
+ * @author Lyle T Harris
+ */
+public class AppTest {
+
+    private String appName;
+
+    private String projectURL;
+
+    private String userName;
+
+    private String password;
+
+    /**
+     * Hudson Config XML file name
+     */
+    private String configFileName;
+
+    private Client client;
+
+    private URI hudsonProject;
+
+    private final long timeout = 1800000;
+
+    private static final String DP = "DataProvider";
+
+    public static final String JCS_ADMINURL = "JCS_ADMINURL";
+
+    public static final String JCS_IDENTITY_DOMAIN = "JCS_IDENTITY_DOMAIN";
+
+    public static final String JCS_SERVICE_INSTANCE = "JCS_SERVICE_INSTANCE";
+
+    public static final String GROUP = "appTest";
+
+    private static final Logger LOG =
+            Logger.getLogger(AppTest.class.getName());
+
+
+    @BeforeTest(groups = {GROUP})
+    public void display() {
+        LOG.info("Project URL: " + projectURL);
+        LOG.info("User Name: " + userName);
+        LOG.info("Password: " + password);
+    }
+
+
+    @BeforeMethod(groups = {"appTest"})
+    public void setup() throws Exception {
+        client = Client.create();
+        client.addFilter(new HTTPBasicAuthFilter(userName, password));
+
+        hudsonProject =
+                new URI(projectURL + "/hudson/rest/projects/" + appName);
+    }
+
+
+    @DataProvider(name = DP)
+    public Iterator<Object[]> getLabParams(Method m) throws IOException {
+        List<Object[]> args = new LinkedList<Object[]>();
+        args.add(new Object[]{appName});
+        return args.iterator();
+    }
+
+
+    @Test(groups = {"appTest"},
+    dataProvider = DP)
+    public void createProject(String app) throws Exception {
+
+        LOG.info(hudsonProject.toString());
+        WebResource resource = client.resource(hudsonProject);
+        ClientResponse r = resource.get(ClientResponse.class);
+
+        if (r.getStatus() == 200) {
+            // Cleanup existing project
+            removeProject(app);
+        }
+
+        String config = readFile(configFileName);
+        URI uri = new URI(projectURL + "/hudson/createItem?name=" + appName);
+        LOG.info("Create: " + uri);
+
+        resource = client.resource(uri);
+
+        Builder builder = resource.type("text/xml");
+        builder = builder.entity(config);
+        builder.post();
+
+    }
+
+
+    @Test(groups = {"appTest"},
+    dataProvider = DP,
+    dependsOnMethods = {"createProject"})
+    public void submitJob(String app) throws Exception {
+
+        URI uri = new URI(projectURL + "/hudson/job/" + app
+                + "/buildWithParameters");
+
+        LOG.info("Build: " + uri);
+        WebResource resource = client.resource(uri);
+        resource = resource.queryParam("TOKEN", "Build");
+        resource = resource.queryParam("APP", app);
+
+        /*
+         * Add in all the JCS instance variables
+         */
+        Iterator<String> envVars = System.getenv().keySet().iterator();
+        while (envVars.hasNext()) {
+            String var = envVars.next();
+            if (var.startsWith("JCS_")) {
+                resource = resource.queryParam(var, System.getenv(var));
+            }
+        }
+
+        String response = resource.get(String.class);
+        //LOG.info("Response: " + response);
+
+    }
+
+
+    @Test(groups = {"appTest"},
+    dataProvider = DP,
+    dependsOnMethods = {"submitJob"},
+    timeOut = timeout)
+    public void waitForQueue(String app) throws Exception {
+
+        LOG.info(hudsonProject.toString());
+        WebResource resource = client.resource(hudsonProject);
+        String response = resource.get(String.class);
+        //    LOG.info("Status: " + response);
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode obj = mapper.readTree(response);
+
+        while ("TRUE".equalsIgnoreCase(obj.get("queued").getValueAsText())) {
+            LOG.info("Job Queued: " + obj.get("title").getTextValue());
+            Thread.sleep(60000);
+
+            response = resource.get(String.class);
+            //  LOG.info("Status: " + response);
+            obj = mapper.readTree(response);
+        }
+    }
+
+
+    @Test(groups = {"appTest"},
+    dataProvider = DP,
+    dependsOnMethods = {"waitForQueue"},
+    timeOut = timeout)
+    public void waitForJobCompletion(String app) throws Exception {
+
+        LOG.info(hudsonProject.toString());
+        WebResource resource = client.resource(hudsonProject);
+        String response = resource.get(String.class);
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode obj = mapper.readTree(response);
+
+        while (obj.get("lastBuild") == null) {
+            LOG.info("Waiting for lastBuild");
+            Thread.sleep(30000);
+
+            response = resource.get(String.class);
+            // LOG.info("Status: " + response);
+            obj = mapper.readTree(response);
+        }
+
+        obj = obj.get("lastBuild");
+
+        while ("BUILDING".equalsIgnoreCase(obj.get("state").getValueAsText())) {
+            LOG.info("Building: " + obj.get("projectName").getTextValue());
+            Thread.sleep(30000);
+
+            response = resource.get(String.class);
+            //  LOG.info("Status: " + response);
+            obj = mapper.readTree(response);
+            obj = obj.get("lastBuild");
+        }
+
+        assertEquals("SUCCESS", obj.get("result").getValueAsText());
+
+        LOG.info("Success: " + obj.get("projectName").getTextValue());
+    }
+
+
+    @Test(groups = {"appTest"},
+    dataProvider = DP,
+    dependsOnMethods = {"waitForJobCompletion"})
+    public void testApplication(String app) throws Exception {
+
+        /*
+         * Create Application context-root URL
+         */
+
+        String jcsAdmin = getRequiredEnvVar(JCS_ADMINURL);
+        String iDomain = getRequiredEnvVar(JCS_IDENTITY_DOMAIN);
+        String service = getRequiredEnvVar(JCS_SERVICE_INSTANCE);
+
+        String url = jcsAdmin.replaceFirst("javaservices",
+                service + "-" + iDomain + ".java") + "/" + app;
+
+        if (url.endsWith("/")) {
+            url += app;
+        } else {
+            url += "/" + app;
+        }
+
+        LOG.info("Application URL: " + url);
+
+        Client appClient = Client.create();
+        WebResource resource = appClient.resource(url);
+        ClientResponse response = resource.get(ClientResponse.class);
+
+        assertTrue(response.getStatus() < 400);
+
+    }
+
+
+    @Test(groups = {"delete"},
+    dataProvider = DP,
+    dependsOnMethods = {"waitForJobCompletion"})
+    public void removeProject(String app) throws Exception {
+
+        URI uri = new URI(projectURL + "/hudson/job/" + app + "/doDelete");
+        LOG.info(uri.toString());
+
+        client.setFollowRedirects(Boolean.FALSE);
+        WebResource resource = client.resource(uri);
+        ClientResponse response = resource.post(ClientResponse.class);
+
+        assertEquals(302, response.getStatus());
+
+        resource = client.resource(hudsonProject);
+        response = resource.get(ClientResponse.class);
+        assertEquals(404, response.getStatus());
+
+
+    }
+
+
+    String readFile(String file) throws IOException {
+
+        InputStream iStream =
+                getClass().getClassLoader().getResourceAsStream(file);
+
+        InputStreamReader iStreamReader = new InputStreamReader(iStream);
+
+        BufferedReader reader = new BufferedReader(iStreamReader);
+        String line = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        String ls = System.getProperty("line.separator");
+
+        while ((line = reader.readLine()) != null) {
+            stringBuilder.append(line);
+            stringBuilder.append(ls);
+        }
+
+        return stringBuilder.toString();
+    }
+
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+
+    public void setProjectURL(String projectURL) {
+        this.projectURL = projectURL;
+    }
+
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+
+    public void setConfigFileName(String configFileName) {
+        this.configFileName = configFileName;
+    }
+
+
+    String getRequiredEnvVar(String var) {
+
+        String value = System.getenv(var);
+
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException(var
+                    + " Env Property not defined");
+        }
+
+        return value;
+    }
+
+
+}
