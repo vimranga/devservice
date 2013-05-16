@@ -44,8 +44,6 @@
                                     text="Last"
                                     disabled="#{!bindings.Last.enabled}"
                                     partialSubmit="true" id="cb3"/>
-		<af:commandButton text="Newly Added"
-                                    partialSubmit="true" id="cnew"/>
                 </af:panelGroupLayout>
               </f:facet>
             </af:panelFormLayout>
