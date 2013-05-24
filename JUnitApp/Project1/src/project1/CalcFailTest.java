@@ -14,4 +14,8 @@ public class CalcFailTest {
     public void testFail() {
         assertEquals(5, new Calculator().add(2, 4));
     }
+
+  public void testHello() {
+      System.out.println("hello");
+  }
 }
